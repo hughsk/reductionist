@@ -1,0 +1,28 @@
+{
+  "name": "reductionist",
+  "version": "0.0.1",
+  "description": "A \"reduce\" method for streaming data",
+  "main": "reductionist.js",
+  "dependencies": {
+    "map-stream": "~0.0.1"
+  },
+  "devDependencies": {
+    "mocha": "~1.4.2",
+    "stream-tester": "0.0.2",
+    "stream-spec": "~0.3.1"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha -u tdd --reporter spec -t 10000 -s 5000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:hughsk/reductionist.git"
+  },
+  "keywords": [
+    "reduce",
+    "stream",
+    "data"
+  ],
+  "author": "Hugh Kennedy",
+  "license": "BSD"
+}
