@@ -1,6 +1,6 @@
 var map = require('map-stream')
 
-module.exports = function(memo, reduce, options) {
+module.exports = function(reduce, memo, options) {
     var options = options || {}
       , stream
       , queue = []

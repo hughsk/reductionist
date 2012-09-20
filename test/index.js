@@ -15,10 +15,10 @@ suite('Always', function() {
         var stream
           , output = []
 
-        stream = reduce(0, function(memo, num, next) {
+        stream = reduce(function(memo, num, next) {
             if (num % 2) return next()
             next(null, memo + num);
-        }).on('data', function(data) {
+        }, 0).on('data', function(data) {
             output.push(data);
         }).once('end', function() {
             assert.deepEqual(output, [
@@ -34,9 +34,9 @@ suite('Always', function() {
         var stream
           , output = []
 
-        stream = reduce(0, function(memo, num, next) {
+        stream = reduce(function(memo, num, next) {
             next(new Error('This should emit'))
-        }).on('error', function(err) {
+        }, 0).on('error', function(err) {
             assert.ok(err && err instanceof Error);
             done();
         })
@@ -50,9 +50,9 @@ suite('Always', function() {
 
 suite('Stream Checks', function() {
     test('Buffers on pause', function(done) {
-        var stream = reduce(0, function(memo, num, next) {
+        var stream = reduce(function(memo, num, next) {
             return next(null, memo + num)
-        })
+        }, 0)
 
         spec(stream)
             .through({
@@ -75,9 +75,9 @@ suite('options.every == false', function() {
         var stream
           , output = []
 
-        stream = reduce(0, function(memo, num, next) {
+        stream = reduce(function(memo, num, next) {
             next(null, memo + num)
-        }).on('data', function(n) {
+        }, 0).on('data', function(n) {
             output.push(n);
         }).once('end', function() {
             assert.deepEqual(output, [
@@ -93,11 +93,11 @@ suite('options.every == false', function() {
         var stream
           , output = []
 
-        stream = reduce(0, function(memo, num, next) {
+        stream = reduce(function(memo, num, next) {
             setTimeout(function(){
                 next(null, memo + num)
             }, 20 - num * 2);
-        }).on('data', function(n) {
+        }, 0).on('data', function(n) {
             output.push(n);
 
             if (output.length === 9) {
@@ -123,9 +123,11 @@ suite('options.every == true', function() {
         var stream
           , output = false
 
-        stream = reduce(0, function(memo, num, next) {
+        stream = reduce(function(memo, num, next) {
             next(null, memo + num);
-        }, { every: false }).on('data', function(data) {
+        }, 0, {
+            every: false
+        }).on('data', function(data) {
             assert.equal(data, 55);
             assert.equal(output, false);
 

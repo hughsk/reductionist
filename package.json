@@ -1,6 +1,6 @@
 {
   "name": "reductionist",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A \"reduce\" method for streaming data",
   "main": "reductionist.js",
   "dependencies": {
