@@ -21,8 +21,12 @@
   "keywords": [
     "reduce",
     "stream",
-    "data"
+    "data",
+    "reductionist"
   ],
   "author": "Hugh Kennedy",
-  "license": "BSD"
+  "license": "BSD",
+  "directories": {
+    "test": "test"
+  }
 }
