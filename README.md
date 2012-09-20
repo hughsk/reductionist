@@ -39,9 +39,12 @@ stream.write(4); // 10
 stream.write(5); // 15
 ```
 
+Passing an error to the callback's first parameter will cause the stream to
+emit it and stop accepting input.
+
 By default, reductionist will output the new value of `memo` each time it
-changes. But by passing `{ every: false }`, the stream will only emit a single
-data event, once it's been closed: the final value for `memo`.
+changes. But by passing `{ every: false }` as an option, the stream will only
+emit a single data event, once it's been closed: the final value for `memo`.
 
 ``` javascript
 var reduce = require('reductionist')

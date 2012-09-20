@@ -78,6 +78,9 @@ module.exports = function(memo, reduce, options) {
     };
 
     stream.once('error', function() {
+        stream.writable = false
+        stream.readable = false
+
         stream.removeAllListeners();
         stream.write = function(){};
         stream.queue = [];
