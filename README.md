@@ -1,4 +1,4 @@
-# reductionist
+# reductionist [![Build Status](https://secure.travis-ci.org/hughsk/reductionist.png?branch=master)](http://travis-ci.org/hughsk/reductionist)
 
 A through stream that acts as a streaming equivalent for Javascript's `reduce`
 method, built off [@dominictarr](http://github.com/dominictarr)'s
